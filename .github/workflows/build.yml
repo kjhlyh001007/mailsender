@@ -32,6 +32,12 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
 
+      - name: 빈 폴더 보장 (git은 빈 폴더를 저장하지 않으므로 직접 생성)
+        shell: bash
+        run: |
+          mkdir -p templates
+          mkdir -p .streamlit
+
       - name: PyInstaller로 실행 파일 빌드
         shell: bash
         run: |
@@ -46,6 +52,10 @@ jobs:
             desktop_launcher.py
 
       - name: 결과물 업로드
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact_name }}
+          path: dist/*
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact_name }}
