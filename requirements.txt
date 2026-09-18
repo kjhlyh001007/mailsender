@@ -1,0 +1,7 @@
+streamlit>=1.32
+pandas>=2.0
+openpyxl>=3.1
+
+# 아래는 "파이썬 설치 없이 쓰는 exe/app" 빌드용입니다.
+# 그냥 `streamlit run app.py`로 실행할 때는 없어도 됩니다.
+streamlit-desktop-app>=0.1.2
